@@ -2,6 +2,7 @@ package villagegaulois;
 
 import personnages.Chef;
 import personnages.Gaulois;
+import villagegaulois.Etal;
 
 public class Village {
 	private String nom;
@@ -45,15 +46,31 @@ public class Village {
 	public String afficherVillageois() {
 		StringBuilder chaine = new StringBuilder();
 		if (nbVillageois < 1) {
-			chaine.append("Il n'y a encore aucun habitant au village du chef "
-					+ chef.getNom() + ".\n");
+			chaine.append("Il n'y a encore aucun habitant au village du chef " + chef.getNom() + ".\n");
 		} else {
-			chaine.append("Au village du chef " + chef.getNom()
-					+ " vivent les légendaires gaulois :\n");
+			chaine.append("Au village du chef " + chef.getNom() + " vivent les légendaires gaulois :\n");
 			for (int i = 0; i < nbVillageois; i++) {
 				chaine.append("- " + villageois[i].getNom() + "\n");
 			}
 		}
 		return chaine.toString();
+	}
+
+	private static class Marche {
+		private Etal[] etals;
+
+		private Marche(int nbEtals) {
+			this.etals = new Etal[nbEtals];
+		}
+
+		private void utiliserEtal(int indiceEtal, Gaulois vendeur, String produit, int nbProduit) {
+			if(etals[indiceEtal].isEtalOccupe()==false) {
+				etals[indiceEtal].occuperEtal(vendeur, produit, nbProduit);
+				
+			}
+			
+			
+		}
+
 	}
 }
