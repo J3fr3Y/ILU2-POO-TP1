@@ -1,5 +1,7 @@
 package villagegaulois;
 
+import java.util.ArrayList;
+
 import personnages.Chef;
 import personnages.Gaulois;
 
@@ -65,13 +67,30 @@ public class Village {
 				}
 		}
 		
-		public void utiliserEtal(int indiceEtal, Gaulois vendeur, String produit, int nbProduit) {
+		private void utiliserEtal(int indiceEtal, Gaulois vendeur, String produit, int nbProduit) {
 			if(indiceEtal >=0 && indiceEtal < etals.length) {
 				etals[indiceEtal].occuperEtal(vendeur, produit, nbProduit);
 			}
 		}
 		
+		private int trouverEtalLibre() {
+			for(int i = 0; i < etals.length; i++) {
+				if(etals[i].isEtalOccupe()==false) {
+					return i;
+				}
+			}
+			return -1;
+		}
 		
+		private Etal[] trouverEtals(String produit) {
+			ArrayList<Etal> etalsTrouves = new ArrayList<Etal>();
+			for(Etal etal: etals) {
+				if(etal.isEtalOccupe() && etal.contientProduit(produit)) {
+					etalsTrouves.add(etal);
+				}
+			}
+			return etalsTrouves.toArray(new Etal[etalsTrouves.size()]);
+		}
 	}
 	
 	
