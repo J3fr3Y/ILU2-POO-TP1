@@ -3,6 +3,7 @@ package villagegaulois;
 import personnages.Chef;
 import personnages.Gaulois;
 import villagegaulois.Etal;
+import villagegaulois.*;
 
 public class Village {
 	private String nom;
@@ -62,7 +63,17 @@ public class Village {
 		private Marche(int nbEtals) {
 			etals = new Etal[nbEtals];
 			for(int i = 0; i < nbEtals;i++) {
-				etals[i] = new Etal();			}
+				etals[i] = new Etal();
+				}
+		}
+		
+		public void utiliserEtal(int indiceEtal, Gaulois vendeur, String produit, int nbProduit) {
+			if(indiceEtal >=0 && indiceEtal < etals.length) {
+				etals[indiceEtal].occuperEtal(vendeur, produit, nbProduit);
+			}
 		}
 	}
+	
+	
+	
 }
