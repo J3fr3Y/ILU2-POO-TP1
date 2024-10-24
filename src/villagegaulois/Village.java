@@ -2,8 +2,6 @@ package villagegaulois;
 
 import personnages.Chef;
 import personnages.Gaulois;
-import villagegaulois.Etal;
-import villagegaulois.*;
 
 public class Village {
 	private String nom;
@@ -72,6 +70,8 @@ public class Village {
 				etals[indiceEtal].occuperEtal(vendeur, produit, nbProduit);
 			}
 		}
+		
+		
 	}
 	
 	
