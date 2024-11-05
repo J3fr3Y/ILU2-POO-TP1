@@ -126,8 +126,10 @@ public class Village {
 		chaineInstallerVendeur.append(vendeur.getNom()).append(" cherche un endroit pour vendre ").append(nbProbuit).append(" ").append(produit).append(".\n");
 		if( index != -1) {
 			marche.utiliserEtal(index, vendeur, produit, nbProbuit);
-			chaineInstallerVendeur.append("Le vendeur ").append(vendeur.getNom()).append(" vend des ").append(produit).append("à l'étal n# ").append(index+1).append(".\n");
+			chaineInstallerVendeur.append("Le vendeur ").append(vendeur.getNom()).append(" vend des ").append(produit).append(" à l'étal n# ").append(index+1).append(".\n");
 			
+		} else {
+			chaineInstallerVendeur.append("Aucun étal libre a été trouvé\n");
 		}
 		return chaineInstallerVendeur.toString();
 	}
@@ -137,15 +139,20 @@ public class Village {
 		Etal[] etals=marche.trouverEtals(produit);
 		if(etals.length==0) {
 			chaineRechercherVendeursProduit.append("Il n'y a pas de vendeur qui propose des ").append(produit).append(" au marché.\n");
+		} else if(etals.length == 1){
+			chaineRechercherVendeursProduit.append("Seul le vendeur ").append(etals[0].getVendeur().getNom()).append(" propose des ").append(produit).append(" au marché.\n");
 		} else {
-			chaineRechercherVendeursProduit.append("Vendeurs de ").append(produit).append(":\n");
+			chaineRechercherVendeursProduit.append("Vendeurs qui proposent des ").append(produit).append(" sont:\n");
 			for(int i = 0; i < etals.length;i++) {
 				if(etals[i].isEtalOccupe() && etals[i].contientProduit(produit)) {
-					chaineRechercherVendeursProduit.append(etals[i].getVendeur().getNom()).append(" à l'étal ").append(i + 1).append(".\n");
+					chaineRechercherVendeursProduit.append("-").append(etals[i].getVendeur().getNom()).append("\n");
 				}
 			}
 		}
 		return chaineRechercherVendeursProduit.toString();		
 	}
 	
+	/*public Etal rechercherEtal(Gaulois vendeur) {
+		
+	}*/
 }
