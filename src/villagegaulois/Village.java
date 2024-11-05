@@ -102,7 +102,7 @@ public class Village {
 			}
 			return null;
 		}
-		public String afficherMarche() {
+		private String afficherMarche() {
 			StringBuilder chaine = new StringBuilder();
 			int nbEtalVide = 0;
 			
@@ -120,5 +120,16 @@ public class Village {
 		}
 	}
 	
+	public String installerVendeur(Gaulois vendeur, String produit, int nbProbuit) {
+		int index = marche.trouverEtalLibre();
+		StringBuilder chaineInstallerVendeur = new StringBuilder();
+		chaineInstallerVendeur.append(vendeur.getNom()).append(" cherche un endroit pour vendre ").append(nbProbuit).append(" ").append(produit).append(".\n");
+		if( index != -1) {
+			marche.utiliserEtal(index, vendeur, produit, nbProbuit);
+			chaineInstallerVendeur.append("Le vendeur ").append(vendeur.getNom()).append(" vend des ").append(produit).append("à l'étal n# ").append(index+1).append(".\n");
+			
+		}
+		return chaineInstallerVendeur.toString();
+	}
 	
 }
