@@ -53,7 +53,7 @@ public class Etal {
 			chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
 					+ " " + produit + " à " + vendeur.getNom());
 			if (quantite == 0) {
-				chaine.append(", malheureusement il n'y en a plus !");
+				chaine.append(", malheureusement il n'y en a plus !\n");
 				quantiteAcheter = 0;
 			}
 			if (quantiteAcheter > quantite) {

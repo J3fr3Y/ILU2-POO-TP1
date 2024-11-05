@@ -156,7 +156,8 @@ public class Village {
 		return marche.trouverVendeur(vendeur);
 	}
 	
-	/*public String partirVendeur(Gaulois vendeur) {
+	public String partirVendeur(Gaulois vendeur) {
+		return marche.trouverVendeur(vendeur).libererEtal();
 		
-	}*/
+	}
 }
