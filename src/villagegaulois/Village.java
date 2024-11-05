@@ -132,4 +132,20 @@ public class Village {
 		return chaineInstallerVendeur.toString();
 	}
 	
+	public String rechercherVendeursProduit(String produit) {
+		StringBuilder chaineRechercherVendeursProduit = new StringBuilder();
+		Etal[] etals=marche.trouverEtals(produit);
+		if(etals.length==0) {
+			chaineRechercherVendeursProduit.append("Il n'y a pas de vendeur qui propose des ").append(produit).append(" au marché.\n");
+		} else {
+			chaineRechercherVendeursProduit.append("Vendeurs de ").append(produit).append(":\n");
+			for(int i = 0; i < etals.length;i++) {
+				if(etals[i].isEtalOccupe() && etals[i].contientProduit(produit)) {
+					chaineRechercherVendeursProduit.append(etals[i].getVendeur().getNom()).append(" à l'étal ").append(i + 1).append(".\n");
+				}
+			}
+		}
+		return chaineRechercherVendeursProduit.toString();		
+	}
+	
 }
