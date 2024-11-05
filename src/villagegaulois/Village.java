@@ -152,7 +152,11 @@ public class Village {
 		return chaineRechercherVendeursProduit.toString();		
 	}
 	
-	/*public Etal rechercherEtal(Gaulois vendeur) {
+	public Etal rechercherEtal(Gaulois vendeur) {
+		return marche.trouverVendeur(vendeur);
+	}
+	
+	/*public String partirVendeur(Gaulois vendeur) {
 		
 	}*/
 }
