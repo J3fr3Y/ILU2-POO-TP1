@@ -2,6 +2,7 @@ package villagegaulois;
 
 import java.util.ArrayList;
 
+import histoire.EtalNonOccupeException;
 import personnages.Chef;
 import personnages.Gaulois;
 
@@ -157,8 +158,16 @@ public class Village {
 	}
 	
 	public String partirVendeur(Gaulois vendeur) {
-		return marche.trouverVendeur(vendeur).libererEtal();
-		
+		Etal etal = marche.trouverVendeur(vendeur);
+		if(etal == null) {
+			return "Vendeur non trouvé\n";
+		}
+		try {
+			return etal.libererEtal();
+		} catch (EtalNonOccupeException e) {
+			e.printStackTrace();
+			return "Erreur: l'étal n'était pas occupé\n";
+		}
 	}
 	
 	public String afficherMarche() {
