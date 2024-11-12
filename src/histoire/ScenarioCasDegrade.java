@@ -46,6 +46,14 @@ public class ScenarioCasDegrade {
 		}
 		System.out.println("Fin du test 3\n");
 		
+		//test exception village sans chef
+		try {
+			System.out.println(village.afficherVillageois());
+		} catch(VillageSansChefException e) {
+			System.err.println("Erreur lors d'affichage villageois: " +e.getMessage());
+		}
+		System.out.println("Fin du test 4\n");
+
 	}
 
 }
