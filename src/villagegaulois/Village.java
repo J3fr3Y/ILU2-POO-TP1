@@ -68,9 +68,17 @@ public class Village {
 		private Marche(int nbEtals) {
 			//initialisation Etal[] etals
 			etals = new Etal[nbEtals];
-			
+		
 			for(int i = 0; i < nbEtals; i++) {
 				etals[i]= new Etal();
+			}
+		}
+		
+		//methode utiliserEtal
+		private void utiliserEtal(int indiceEtal, Gaulois vendeur, String produit, int nbProduit){
+			//verifier si indice de l'etal est valide
+			if(indiceEtal >= 0 && indiceEtal < etals.length) {
+				etals[indiceEtal].occuperEtal(vendeur, produit, nbProduit);
 			}
 		}
 		
