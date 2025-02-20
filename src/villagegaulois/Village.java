@@ -82,5 +82,15 @@ public class Village {
 			}
 		}
 		
+		//methode trouverEtalLibre
+		private int trouverEtalLibre() {
+			for(int i = 0; i < etals.length; i++) {
+				if(etals[i].isEtalOccupe() == false) {
+					return i;
+				}
+			}
+			return -1;
+		}
+		
 	}
 }
