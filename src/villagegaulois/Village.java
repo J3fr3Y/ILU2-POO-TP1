@@ -56,4 +56,11 @@ public class Village {
 		}
 		return chaine.toString();
 	}
+	
+	//creation de la classe interner Marche
+	
+	public static class Marche{
+		//attribut etals de type tab Etal
+		private Etal[] etals;
+	}
 }
