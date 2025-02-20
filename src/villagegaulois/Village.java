@@ -62,5 +62,17 @@ public class Village {
 	public static class Marche{
 		//attribut etals de type tab Etal
 		private Etal[] etals;
+		
+		/*constructeur Marche
+		 * INPUT: nb etals du marche*/
+		private Marche(int nbEtals) {
+			//initialisation Etal[] etals
+			etals = new Etal[nbEtals];
+			
+			for(int i = 0; i < nbEtals; i++) {
+				etals[i]= new Etal();
+			}
+		}
+		
 	}
 }
