@@ -63,7 +63,7 @@ public class Village {
 		return chaine.toString();
 	}
 	
-	//creation de la classe interner Marche
+	//creation de la classe interne Marche
 	
 	private static class Marche{
 		//attribut etals de type tab Etal
@@ -141,5 +141,20 @@ public class Village {
 			}
 			return chaine.toString();
 		}
+	}
+	
+	//methodes classe Village
+	
+	//methode installer vendeur
+	public String installerVendeur(Gaulois vendeur, String produit, int nbProduit) {
+		StringBuilder chaineInstallerVendeur = new StringBuilder();
+		chaineInstallerVendeur.append(vendeur.getNom() + " cherche un endroit pour vendre " + nbProduit + " " + produit + ".\n");
+		int numEtal = marche.trouverEtalLibre();
+		if(numEtal != -1) {
+			chaineInstallerVendeur.append("Le vendeur " + vendeur.getNom() +" vend des " + produit + "à l'étal n°1.\n");
+		} else {
+			chaineInstallerVendeur.append("Aucun étal libre a été trouvé.\n");
+		}
+		return chaineInstallerVendeur.toString();
 	}
 }
