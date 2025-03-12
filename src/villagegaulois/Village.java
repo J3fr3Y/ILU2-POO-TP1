@@ -120,5 +120,24 @@ public class Village {
 			}
 			return null;
 		}
+		
+		//methode afficherMarché
+		private String afficherMarche() {
+			StringBuilder chaine = new StringBuilder();
+			int nbEtalsVide = 0;
+			for(Etal etal: etals) {
+				if(etal.isEtalOccupe()) {
+					chaine.append(etal.afficherEtal());
+				}else {
+					nbEtalsVide++;
+				}
+				
+			}
+			if(nbEtalsVide > 0) {
+				chaine.append("Il reste " + nbEtalsVide +" étals non utilisés dans le marché.\n");
+			}
+			return chaine.toString();
+		}
+
 	}
 }
