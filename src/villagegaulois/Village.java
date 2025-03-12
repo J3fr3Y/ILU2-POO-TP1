@@ -1,5 +1,8 @@
 package villagegaulois;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import personnages.Chef;
 import personnages.Gaulois;
 
@@ -59,7 +62,7 @@ public class Village {
 	
 	//creation de la classe interner Marche
 	
-	public static class Marche{
+	private static class Marche{
 		//attribut etals de type tab Etal
 		private Etal[] etals;
 		
@@ -90,6 +93,21 @@ public class Village {
 				}
 			}
 			return -1;
+		}
+
+		//methode trouverEtals
+		private Etal[] trouverEtals(String produit) {
+			//liste dynamique de type Etal
+			ArrayList<Etal> etalsTrouves = new ArrayList<Etal>();
+			
+			//traverse tous les Etals et ajoute a etalsTouves ce contenant le produit cherhé
+			for(Etal etal: etals) {
+				if(etal.isEtalOccupe() && etal.contientProduit(produit)) {
+					etalsTrouves.add(etal);
+				}
+			}
+			//transforme la liste dynamique en tableau de taille des etals Trouvés
+			return etalsTrouves.toArray(new Etal[etalsTrouves.size()]);
 		}
 		
 	}
