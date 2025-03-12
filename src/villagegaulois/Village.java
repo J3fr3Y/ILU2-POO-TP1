@@ -151,10 +151,29 @@ public class Village {
 		chaineInstallerVendeur.append(vendeur.getNom() + " cherche un endroit pour vendre " + nbProduit + " " + produit + ".\n");
 		int numEtal = marche.trouverEtalLibre();
 		if(numEtal != -1) {
-			chaineInstallerVendeur.append("Le vendeur " + vendeur.getNom() +" vend des " + produit + "à l'étal n°1.\n");
+			marche.utiliserEtal(numEtal, vendeur, produit, nbProduit);
+			chaineInstallerVendeur.append("Le vendeur " + vendeur.getNom() +" vend des " + produit + " à l'étal n°" + (numEtal+1) +".\n");
 		} else {
 			chaineInstallerVendeur.append("Aucun étal libre a été trouvé.\n");
 		}
 		return chaineInstallerVendeur.toString();
 	}
+	
+	//methode rechercher Vendeurs Produit
+	public String rechercherVendeursProduit(String produit) {
+	StringBuilder chaineVendeursProduit = new StringBuilder();
+	Etal [] etals = marche.trouverEtals(produit);
+	if(etals.length == 0) {
+		chaineVendeursProduit.append("Il n'y a pas de vendeur qui propose des " + produit + " au marché.\n");
+	} else if(etals.length == 1){
+		chaineVendeursProduit.append("Seul le vendeur " + etals[0].getVendeur().getNom() + " propose des " + produit + " au marché.\n");
+	} else {
+		chaineVendeursProduit.append("Les vendeurs qui proposent des " + produit + " sont :\n");
+		for(Etal etal: etals) {
+			chaineVendeursProduit.append("- " + etal.getVendeur().getNom() +"\n");
+		}
+	}
+	return chaineVendeursProduit.toString();
+	}
+	
 }
