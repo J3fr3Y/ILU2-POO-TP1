@@ -110,5 +110,15 @@ public class Village {
 			return etalsTrouves.toArray(new Etal[etalsTrouves.size()]);
 		}
 		
+		//methode trouverVendeur
+		private Etal trouverVendeur(Gaulois gaulois) {
+			//parcour tous les etals
+			for(Etal etal: etals) {
+				if(etal.isEtalOccupe() && etal.getVendeur().equals(gaulois)) {
+					return etal;
+				}
+			}
+			return null;
+		}
 	}
 }
