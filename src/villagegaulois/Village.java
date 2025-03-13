@@ -181,5 +181,13 @@ public class Village {
 	public Etal rechercherEtal(Gaulois vendeur) {
 		return marche.trouverVendeur(vendeur);
 	}
-
+	
+	//methode partir Vendeur
+	public String partirVendeur(Gaulois vendeur) {
+		Etal etal = marche.trouverVendeur(vendeur);
+		if(etal == null) {
+			return "Vendeur non trouvé.\n";
+		}
+		return etal.libererEtal();
+	}
 }
