@@ -1,5 +1,6 @@
 package villagegaulois;
 
+import histoire.EtalNonOccupeException;
 import personnages.Gaulois;
 
 public class Etal {
@@ -25,7 +26,17 @@ public class Etal {
 		etalOccupe = true;
 	}
 
-	public String libererEtal() {
+	public String libererEtal() throws EtalNonOccupeException{
+		try{
+			if(!this.etalOccupe) {
+				throw new EtalNonOccupeException("L'étal n'est pas occupé\n");
+			}
+		}catch (EtalNonOccupeException e) {
+				e.printStackTrace();
+				return "";
+		}
+			
+		
 		etalOccupe = false;
 		StringBuilder chaine = new StringBuilder(
 				"Le vendeur " + vendeur.getNom() + " quitte son étal, ");

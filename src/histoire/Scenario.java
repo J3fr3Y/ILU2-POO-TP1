@@ -23,7 +23,7 @@ public class Scenario {
 		village.ajouterHabitant(obelix);
 		village.ajouterHabitant(druide);
 		village.ajouterHabitant(abraracourcix);
-//		village.afficherVillageois();
+		village.afficherVillageois();
 
 		System.out.println(village.rechercherVendeursProduit("fleurs"));
 		System.out.println(village.installerVendeur(bonemine, "fleurs", 20));
@@ -38,7 +38,7 @@ public class Scenario {
 		System.out.println(etalFleur.acheterProduit(15, obelix));
 		System.out.println(etalFleur.acheterProduit(15, assurancetourix));
 		System.out.println(village.partirVendeur(bonemine));
-//		System.out.println(village.afficherMarche());
+		System.out.println(village.afficherMarche());
 	}
 
 }

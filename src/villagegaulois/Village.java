@@ -190,4 +190,10 @@ public class Village {
 		}
 		return etal.libererEtal();
 	}
+	
+	//methode afficher Marché
+	public String afficherMarche() {
+		return "Le marché du village \"" + nom + "\" possède plusieurs étals :\n" + marche.afficherMarche();
+	}
+	
 }
