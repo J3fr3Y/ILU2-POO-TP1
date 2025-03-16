@@ -3,6 +3,7 @@ package villagegaulois;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import histoire.VillageSansChefException;
 import personnages.Chef;
 import personnages.Gaulois;
 
@@ -47,8 +48,16 @@ public class Village {
 		return null;
 	}
 
-	public String afficherVillageois() {
+	public String afficherVillageois() throws VillageSansChefException {
 		StringBuilder chaine = new StringBuilder();
+		try {
+			if(chef == null) {
+				throw new VillageSansChefException("Le village " + nom + " doit avoir un chef.");
+			}
+		} catch (VillageSansChefException e){
+			e.printStackTrace();
+			return chaine.toString();
+		}
 		if (nbVillageois < 1) {
 			chaine.append("Il n'y a encore aucun habitant au village du chef " + chef.getNom() + ".\n");
 		} else {
